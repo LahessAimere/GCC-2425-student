@@ -9,7 +9,7 @@ current_dir=$(pwd)
 cd "$(dirname "$0")"
 
 if [[ $1 = "-a" ]]; then
-  if [ -d "build" ]; then
+  if [ -d "buildbuild.bat -abuild.bat -a" ]; then
     echo "# Deleting existing build directory"
     chmod -R 777 "./build"
     rm -rf ./build
