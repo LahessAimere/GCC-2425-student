@@ -72,6 +72,12 @@ std::ostream& operator<<(std::ostream& ostream, Point2D& point2D)
     return ostream;
 }
 
+std::istream& operator>>(std::istream& istream, Point2D& point2D) 
+{
+    istream >> point2D.x >> point2D.y;
+    return istream;
+}
+
 std::string Point2D::toString()
 {
     std::ostringstream ss;

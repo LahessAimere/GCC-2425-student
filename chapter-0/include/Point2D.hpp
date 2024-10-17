@@ -113,6 +113,14 @@ public:
     friend std::ostream& operator<<(std::ostream& ostream, Point2D& point2D);
 
     /**
+    * @brief Surcharge de l'opérateur d'extraction pour lire les coordonnées d'un Point2D à partir d'un flux d'entrée
+    * @param istream Flux d'entrée (std::istream) utilisé pour extraire les coordonnées
+    * @param point2D Point2D dans lequel les coordonnées extraites seront stockées
+    * @return Référence au flux d'entrée
+     */
+    friend std::istream& operator>>(std::istream& istream, Point2D& point2D);
+
+    /**
      * @brief Surcharge de l'opérateur d'affectation
      * @param P Point à affecter
      * @return Référence vers l'objet actuel
