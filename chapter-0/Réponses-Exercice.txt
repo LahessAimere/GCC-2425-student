@@ -1,0 +1,13 @@
+-Exercices de consolidation-
+2.i. Pourquoi num est statique ? Quelle est alors sa nature ?
+# Num doit être unique pour chaque point, donc il ne peut pas être statique, 
+sinon il serait partagé entre tous. Par contre, count est statique pour compter combien de points ont été créés. 
+Chaque nouveau point utilise count pour avoir un numéro unique. #
+
+3.a. Pourquoi les champs x, y devraient-ils être en privés ou protected plutôt qu’en public ?
+# Rendre x et y privés empêche qu’on y accède directement, forçant à passer par les méthodes comme Translate(). 
+Ça évite les erreurs ou modifications imprévues. #
+
+b. Quel est l’impact de cette décision sur la sécurité des données et sur la possibilité d’étendre la classe à d’autres usages ?
+# Ça rend aussi le code plus flexible : on peut changer l'implémentation (par ex : passer aux coordonnées polaires) 
+sans toucher aux méthodes publiques. #
