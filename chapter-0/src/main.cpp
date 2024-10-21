@@ -25,5 +25,8 @@ int main()
 
     std::cout << "Nombre de points créés : " << Point2D::getCount() << std::endl;
 
+    WeightedPoint weight(1.0f, 2.0f, 3.5f);
+    displayPoint(weight); 
+
     return 0;
 }

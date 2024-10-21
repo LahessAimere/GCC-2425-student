@@ -11,3 +11,24 @@ Chaque nouveau point utilise count pour avoir un numéro unique. #
 b. Quel est l’impact de cette décision sur la sécurité des données et sur la possibilité d’étendre la classe à d’autres usages ?
 # Ça rend aussi le code plus flexible : on peut changer l'implémentation (par ex : passer aux coordonnées polaires) 
 sans toucher aux méthodes publiques. #
+
+-Exercices sur les classes-
+2.c. Dans le main, créez une fonction displayPoint(const Point2D&) qui appelle la méthode toString . 
+Quelle méthode toString est appelée lorsque vous passez un WeightedPoint  à cette fonction ? Pourquoi ?
+# Si toString est déclarée comme virtuelle dans Point2D et un WeightedPoint est passé à la fonction displayPoint(const Point2D&), 
+c'est la version de toString de WeightedPoint qui sera appelée. #
+
+d. Écrivez explicitement le mot-clef override dans la classe dérivée WeightedPoint pour la méthode toString . 
+En quoi cela aide-t-il à éviter au compilateur des erreurs ?
+# Mettre override dans toString permet au compilateur de vérifier que tu redéfines bien une méthode existante. 
+Si la méthode de la classe de base change, ça évite de te retrouver avec une nouvelle méthode par accident, 
+sans que tu le remarques. #
+
+4. Imaginer que l’on soit amené à créer une classe héritant à la fois de WeightedPoint  et de ColouredPoint . 
+Expliquez pourquoi cela pourrait poser un problème si les deux héritent de la classe Point2D . 
+Quelle solution existe-t-il en C++ pour résoudre ce problème ?
+# Si tu fais une classe qui hérite à la fois de WeightedPoint et ColouredPoint, 
+tu risques d'avoir un souci parce que les deux viennent de Point2D. Du coup, ta nouvelle classe aurait deux copies de Point2D, 
+une venant de chaque côté, ce qui peut créer des conflits, par exemple, pour savoir quelle version de toString utiliser.
+Tu peux résoudre ça avec l'héritage virtuel. En disant que Point2D est "virtuel" dans WeightedPoint et ColouredPoint, 
+tu t'assures qu'il n'y ait qu'une seule version de Point2D #
