@@ -39,9 +39,9 @@ int main()
     point2D.Translate(1.0f, 1.0f);
     std::cout << "\nDéplace les points de coordonnées (x, y) dans la direction des nombres données: \n" << DisplayPoint2D(point2D) << std::endl;
 
-    //Addition de deux points
-    Point2D2 p4 = point2D + p2;
-    std::cout << "\nAddition (p1 + p2): \n" << p4.toString() << std::endl;
+    // //Addition de deux points (Fonctionne pas)
+    // Point2D2 p4 = point2D + p2;
+    // std::cout << "\nAddition (p1 + p2): \n" << p4.toString() << std::endl;
 
     //Cin Points x,y
     Point2D2 newPoint;
@@ -51,8 +51,8 @@ int main()
     newPoint = Point2D2(x, y);
     std::cout << "\nPoint après extraction: \n" << DisplayPoint2D(newPoint) << std::endl;
     
-    //Total Points (il marche pas)
-    std::cout << "\nTotal de points créés : \n" << Point2D::getCount() << std::endl;
+    //Total Points
+    std::cout << "\nTotal de points créés : \n" << Point2D2::getCount() << std::endl;
 
     return 0;
 }

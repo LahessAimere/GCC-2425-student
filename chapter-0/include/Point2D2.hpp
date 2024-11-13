@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <iostream>
 #include <string>
+#include <ostream>
 
 class Point2D2
 {
@@ -18,6 +19,8 @@ protected:
      */
     float y;
 
+    int num;
+
 private:
     /**
      * @brief Taille de la collection de points
@@ -28,6 +31,9 @@ private:
 public:
     Point2D2();
     Point2D2(float x, float y);
+    Point2D2(const Point2D2 &point2D2);
+
+    static int count;
 
     /**
      * @brief Destructeur par défaut
@@ -39,7 +45,10 @@ public:
 
     virtual std::string toString() const;
 
-    Point2D2 operator+(const Point2D2& other) const;
+    //virtual float DistanceFromOrigin() const = 0;
+
+    int getNum() const;
+    static int getCount();
 };
 
 #endif // _CHAPTER_O_POINT_2D_2_HPP_
