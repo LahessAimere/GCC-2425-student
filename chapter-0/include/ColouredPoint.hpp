@@ -1,17 +1,18 @@
-#ifndef _CHAPTER_O_ColouredPoint_HPP_
-#define _CHAPTER_O_ColouredPoint_HPP_
-#include <iostream>
+#ifndef COLOUREDPOINT_HPP
+#define COLOUREDPOINT_HPP
 
-class ColouredPoint : public Point2D
-{
+#include "Point2D2.hpp"
+#include <string>
+
+class ColouredPoint : public Point2D2 {
 private:
     std::string color;
 
 public:
-    ColouredPoint();
-    ~ColouredPoint();
+    ColouredPoint(float x, float y, const std::string& color);
+    ~ColouredPoint() = default;
 
-    ColouredPoint(float x, float y, const std::string& color) : Point2D(x, y), color(color);
+    std::string toString() const override;
 };
 
-#endif // _CHAPTER_O_ColouredPoint_HPP_
+#endif

@@ -37,7 +37,7 @@ void Point2D::Homothety(Point2D p, Point2D o, float ratio)
     this-> y = o.Ordinate() + ratio * (p.Ordinate() - o.Ordinate());
 }
 
-void Point2D::Rotation(float radiant)
+void Point2D::Rotate(float radiant)
 {
     float newX = x * std::cos(radiant) - y * std::sin(radiant);
     float newY = x * std::sin(radiant) + y * std::cos(radiant);
