@@ -1,23 +1,23 @@
-#ifndef _CHAPTER_O_WeightedPoint_HPP_
-#define _CHAPTER_O_WeightedPoint_HPP_
-#include <iostream>
+#ifndef _CHAPTER_O_WEIGHTEDPOINT_HPP_
+#define _CHAPTER_O_WEIGHTEDPOINT_HPP_
 
-class WeightedPoint : public Point2D
+#include "Point2D2.hpp"
+#include <string>
+
+class WeightedPoint : public Point2D2
 {
 private:
     float weight;
 
 public:
     WeightedPoint();
-    ~WeightedPoint();
-
-    void WeightedPoint(float x, float y, float weight) : Point2D(x, y), weight(weight);
+    WeightedPoint(float x, float y, float weight);
+    ~WeightedPoint() = default;
 
     virtual std::string toString() const override;
 
-    void setWeight(float Weight);
-
+    void setWeight(float weight);
     float getWeight() const;
 };
 
-#endif // _CHAPTER_O_WeightedPoint_HPP_
+#endif // _CHAPTER_O_WEIGHTEDPOINT_HPP_

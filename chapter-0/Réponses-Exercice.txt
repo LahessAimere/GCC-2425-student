@@ -32,3 +32,28 @@ tu risques d'avoir un souci parce que les deux viennent de Point2D. Du coup, ta 
 une venant de chaque côté, ce qui peut créer des conflits, par exemple, pour savoir quelle version de toString utiliser.
 Tu peux résoudre ça avec l'héritage virtuel. En disant que Point2D est "virtuel" dans WeightedPoint et ColouredPoint, 
 tu t'assures qu'il n'y ait qu'une seule version de Point2D #
+
+-Exercices sur le polymorphisme dynamique et statique-
+1.a. Quel type de liaison (dynamique ou statique) est utilisé lors de l’appel de la méthode translate  ? 
+En quoi est-ce important de le savoir ?
+   # Type : translateAll dynamique
+     Important : parce que du coup on peut utilisé n'importe quel point pour utilisé le programme #
+
+2.Est-il possible d’appeler la méthode setWeight()  ou de modifier la couleur d’un ColouredPoint via un pointeur de type Point2D* ? 
+Pourquoi ?
+# Non, il n'est pas possible d'appeler setWeight() ou de modifier la couleur d'un ColouredPoint via un pointeur de type Point2D*.
+Un pointeur Point2D* ne connaît que les méthodes de base. Pour accéder aux méthodes spécifiques d'un WeightedPoint, comme setWeight(), 
+tu dois caster le pointeur,lui dire qu'il pointe vers un WeightedPoint et non juste un Point2D #
+
+-Les classes abstraites et le polymorphisme pur-
+1. Modifier les classes dérivées pour implémenter cette méthode pure. Quel est l'intérêt de cette abstraction ?
+# L'intérêt principal d'utiliser une classe abstraite avec des méthodes virtuelles pures est de forcer les classes dérivées à 
+implémenter ces méthodes.
+	- WeightedPoint, ColouredPoint, TimedPoint aura une manière propre d'afficher ses informations et de calculer sa distance à 
+    l'origine #
+
+2. Créer une fonction void displayPoints(const std::vector<Point2D*>& points) qui appelle toString() sur chaque élément du tableau. 
+Quel type d'héritage et de polymorphisme est utilisé ici ?
+# Type d'héritage est public
+  Type de polymorphisme est dynamique
+  L'héritage public permet aux classes dérivées de Point2D d'être utilisées comme des instances de Point2D #

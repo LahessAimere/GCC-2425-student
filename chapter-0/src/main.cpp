@@ -1,32 +1,58 @@
 #include <iostream>
+#include <vector>
 #include "../include/Point2D.hpp"
+#include "../include/Point2D2.hpp"
+#include "../include/WeightedPoint.hpp"
+#include "../include/ColouredPoint.hpp"
 
-void DisplayPoint2D(Point2D point2D) {
-    std::cout << point2D << std::endl;
+std::string DisplayPoint2D(const Point2D2& point2D) 
+{
+    return point2D.toString();
+}
+
+void DisplayPoints(const std::vector<Point2D2*>& points) 
+{
+    for (const auto& point : points) 
+    {
+        std::cout << point->toString() << std::endl;
+    }
 }
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
+    //Abscisse et Ordonné d’un point donné en argument
+    Point2D2 point2D(6, 9);
+    std::cout << "Abscisse et Ordonné d’un point donné en argument: \n" << DisplayPoint2D(point2D) << std::endl;
 
-    Point2D point2D(6, 9, "A");
-    Point2D o(0.0, 0.0, "Origine");
-    float ratio = 7;
+    //Origin
+    Point2D2 o(0.0, 0.0);
 
-    point2D.Homothety(point2D, o, ratio);
+    //WeightedPoint
+    WeightedPoint p2(3.0, 4.0, 5.5);
+    std::cout << "\nWeightedPoint: \n" << DisplayPoint2D(p2) << std::endl;
 
-    DisplayPoint2D(point2D);
+    //Couloured
+    ColouredPoint p3(6.0, 7.0, "red");
+    std::cout << "\nCouloured: \n" << DisplayPoint2D(p3) << std::endl;
 
-    Point2D newPoint;
-    std::cout << "Entrez les coordonnées du nouveau point (x y) : ";
-    std::cin >> newPoint;
+    //Translate
+    point2D.Translate(1.0f, 1.0f);
+    std::cout << "\nDéplace les points de coordonnées (x, y) dans la direction des nombres données: \n" << DisplayPoint2D(point2D) << std::endl;
 
-    DisplayPoint2D(newPoint);
+    //Addition de deux points
+    Point2D2 p4 = point2D + p2;
+    std::cout << "\nAddition (p1 + p2): \n" << p4.toString() << std::endl;
 
-    std::cout << "Nombre de points créés : " << Point2D::getCount() << std::endl;
-
-    WeightedPoint weight(1.0f, 2.0f, 3.5f);
-    displayPoint(weight); 
+    //Cin Points x,y
+    Point2D2 newPoint;
+    std::cout << "\nEntrez les coordonnées du nouveau point (x y) : \n";
+    float x, y;
+    std::cin >> x >> y;
+    newPoint = Point2D2(x, y);
+    std::cout << "\nPoint après extraction: \n" << DisplayPoint2D(newPoint) << std::endl;
+    
+    //Total Points (il marche pas)
+    std::cout << "\nTotal de points créés : \n" << Point2D::getCount() << std::endl;
 
     return 0;
 }

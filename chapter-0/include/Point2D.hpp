@@ -23,16 +23,16 @@ private:
     int num;
 
     /**
-     * @brief Nombre de points créés (statique)
-     */
-    static int count;
-
-    /**
      * @brief Étiquette du point (label)
      */
     std::string label;
 
 public:
+    /**
+     * @brief Nombre de points créés (statique)
+     */
+    static int count;
+
     /**
      * @brief Constructeur par défaut
      */
@@ -74,7 +74,7 @@ public:
      * @brief Une rotation avec un angle dans un repère polaire
      * @param radiant L'angle de rotation en radians
      */
-    void Rotation(float radiant);
+    void Rotate(float radiant);
 
     /**
      * @brief Obtenir l'abscisse du point
@@ -125,7 +125,7 @@ public:
      * @param P Point à affecter
      * @return Référence vers l'objet actuel
      */
-    Point2D& operator=(Point2D P);
+    Point2D& operator=(Point2D point2D);
 
     /**
      * @brief Retourne le numéro du point courant
