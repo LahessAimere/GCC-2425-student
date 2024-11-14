@@ -1,6 +1,0 @@
-#ifndef _CHAPTER_O_POINT_2D_HPP_
-#define _CHAPTER_O_POINT_2D_HPP_
-
-
-
-#endif // _CHAPTER_O_POINT_2D_HPP_
