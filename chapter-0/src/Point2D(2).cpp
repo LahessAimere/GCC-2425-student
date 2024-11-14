@@ -1,5 +1,6 @@
 #include "../include/Point2D2.hpp"
 #include <cstddef>
+#include <sstream>
 
 int Point2D2::count = 0;
 
@@ -46,4 +47,15 @@ int Point2D2::getNum() const
 int Point2D2::getCount()
 {
     return count;
+}
+
+float Point2D2::DistanceFromOrigin() const 
+{
+    return std::sqrt(x * x + y * y);
+}
+
+std::ostream& operator<<(std::ostream& ostream, const Point2D2& point2D2)
+{
+    ostream << "Point " << point2D2.getNum() << ": (" << point2D2.x << ", " << point2D2.y << ")";
+    return ostream;
 }

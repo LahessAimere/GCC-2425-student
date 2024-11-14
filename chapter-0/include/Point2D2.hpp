@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <ostream>
+#include <cmath>
 
 class Point2D2
 {
@@ -45,10 +46,12 @@ public:
 
     virtual std::string toString() const;
 
-    //virtual float DistanceFromOrigin() const = 0;
+    virtual float DistanceFromOrigin() const = 0;
 
     int getNum() const;
     static int getCount();
+
+    friend std::istream& operator>>(std::istream& istream, Point2D2& point2D);
 };
 
 #endif // _CHAPTER_O_POINT_2D_2_HPP_
