@@ -1,65 +1,56 @@
 #include <iostream>
-#include <string>
+#include <vector>
+#include "../include/Point2D.hpp"
+#include "../include/Point2D2.hpp"
+#include "../include/WeightedPoint.hpp"
+#include "../include/ColouredPoint.hpp"
 
-class Texture
+std::string DisplayPoint2D(const Point2D2& point2D) 
 {
-    public:
-    Textture()
-    {
-        std::cout << "Chargement de la texture \n"
-        textureName = "randomTexture";
-    }
+    return point2D.toString();
+}
 
-    Texture(std::string textureName)
-    {
-        std::cout << "Chargement de la texture \n"
-        texturName = textureName;
-    }
-
-    void Display()
-    {
-        std::cout << "Affichage texture\n";
-    }
-
-    private:
-    std::string textureName;
-};
-
-
-class Unit
+void DisplayPoints(const std::vector<Point2D2*>& points) 
 {
-    public:
-    Unit()
+    for (const auto& point : points) 
     {
-        texture = new Texture();
+        std::cout << point->toString() << std::endl;
     }
-
-    Unit(std::string textureName)
-    {
-        texture = new Texture(textureName);
-    }
-
-    ~Unit()
-    {
-        delete texture;
-    }
-
-    void DisplayTexture()
-    {
-        texture->Display();
-    }
-
-    private:
-    Texture* texture;
-};
+}
 
 int main()
-{
-    Unit u1();
-    u1.DisplayTexture();
+    {
+//     //Abscisse et Ordonné d’un point donné en argument
+//     Point2D2 point2D(6, 9);
+//     std::cout << "Abscisse et Ordonné d’un point donné en argument: \n" << DisplayPoint2D(point2D) << std::endl;
 
-    Unit u2();
-    u2.DisplayTexture();
+
+    //WeightedPoint
+    WeightedPoint p2(3.0, 4.0, 5.5);
+    std::cout << "\nWeightedPoint: \n" << DisplayPoint2D(p2) << std::endl;
+
+    //Couloured
+    ColouredPoint p3(6.0, 7.0, "red");
+    std::cout << "\nCouloured: \n" << DisplayPoint2D(p3) << std::endl;
+
+    // //Translate
+    // point2D.Translate(1.0f, 1.0f);
+    // std::cout << "\nDéplace les points de coordonnées (x, y) dans la direction des nombres données: \n" << DisplayPoint2D(point2D) << std::endl;
+
+    // // //Addition de deux points (Fonctionne pas)
+    // // Point2D2 p4 = point2D + p2;
+    // // std::cout << "\nAddition (p1 + p2): \n" << p4.toString() << std::endl;
+
+    // //Cin Points x,y
+    // Point2D2 newPoint;
+    // std::cout << "\nEntrez les coordonnées du nouveau point (x y) : \n";
+    // float x, y;
+    // std::cin >> x >> y;
+    // newPoint = Point2D2(x, y);
+    // std::cout << "\nPoint après extraction: \n" << DisplayPoint2D(newPoint) << std::endl;
     
+    //Total Points
+    std::cout << "\nTotal de points créés : \n" << Point2D2::getCount() << std::endl;
+
     return 0;
 }
