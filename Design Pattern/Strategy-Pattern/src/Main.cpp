@@ -12,9 +12,10 @@
 void genericSorting(const std::vector<int>& vector)
 {
     std::unique_ptr<Isort> sortingAlgorithm = std::make_unique<QuickSort>();
+    
     if (std::size_t collectionSize = vector.size(); collectionSize < 16)
     {
-        sortingAlgorithm = std::make_unique<QuickSort>();
+        sortingAlgorithm = std::make_unique<BubbleSort>();
     }
     else if (collectionSize < 64)
     {
@@ -73,8 +74,6 @@ int main ()
     displayVector(v3);
     genericSorting(v3);
     displayVector(v3);
-
-
 
     return 0;
 }
