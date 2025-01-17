@@ -9,5 +9,4 @@ struct Isort
     virtual void sort(const std::vector<int>& vector) = 0;
 };
 
-
 #endif // ISORT_HPP_

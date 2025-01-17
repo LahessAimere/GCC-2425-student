@@ -8,7 +8,7 @@ struct QuickSort final : Isort
 {
     void sort(const std::vector<int>& vector) override
     {
-        std::vector<int> copyVector = vector;
+        std::vector<int> copyVector(vector);
         std::cout << "QuickSort::sort()\n";
 
         //Appel à la fonction récursive quickSort pour trier le tableau

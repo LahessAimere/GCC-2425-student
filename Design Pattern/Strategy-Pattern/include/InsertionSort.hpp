@@ -8,7 +8,7 @@ struct InsertionSort final : Isort
 {
     void sort(const std::vector<int>& vector) override
     {
-        std::vector<int> copyVector = vector;
+        std::vector<int> copyVector(vector);
         std::cout << "InsertionSort::sort()\n";
 
         //La boucle commence à partir de l'index 1, car l'élément à l'index 0 est déjà "trié"
@@ -31,6 +31,5 @@ struct InsertionSort final : Isort
         std::cout << "\n";
     }
 };
-
 
 #endif // INSERTIONSORT_HPP_

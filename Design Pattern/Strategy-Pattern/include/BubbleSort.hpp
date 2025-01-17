@@ -9,7 +9,7 @@ struct BubbleSort final : Isort
     void sort(const std::vector<int>& vector) override
     {
         //Création d'une copie du tableau pour éviter de modifier l'original
-        std::vector<int> copyVector = vector;
+        std::vector<int> copyVector(vector);
         std::cout <<"BubbleSort::sort()\n";
 
         //Première boucle : on effectue plusieurs passes pour trier le tableau
@@ -35,6 +35,5 @@ struct BubbleSort final : Isort
         std::cout << "\n";
     }
 };
-
 
 #endif //BUBBLESORT_HPP_
